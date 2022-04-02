@@ -6,19 +6,19 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: _appBar(),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 80),
-              textTitle("ĐĂNG NHẬP BẰNG TÀI KHOẢN"),
-              const SizedBox(height: 80),
-              textField("Tên tài khoản", const Icon(Icons.email)),
-              const SizedBox(height: 20),
-              textField("Mật khẩu", const Icon(Icons.key)),
-              const SizedBox(height: 50),
+              _sizeBox(50),
+              _textTitle("ĐĂNG NHẬP BẰNG TÀI KHOẢN"),
+              _sizeBox(50),
+              _textField("Tên tài khoản", const Icon(Icons.email)),
+              _sizeBox(20),
+              _textField("Mật khẩu", const Icon(Icons.key)),
+              _sizeBox(50),
               Row(
                 children: [
                   Expanded(
@@ -59,9 +59,9 @@ class Login extends StatelessWidget {
                 ],
               ),
               const Divider(height: 50, color: Colors.black87),
-              const SizedBox(height: 30),
-              textTitle("ĐĂNG NHẬP BẰNG"),
-              const SizedBox(height: 20),
+              _sizeBox(50),
+              _textTitle("ĐĂNG NHẬP BẰNG"),
+              _sizeBox(50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -92,7 +92,11 @@ class Login extends StatelessWidget {
   }
 }
 
-Text textTitle(String textTitle) {
+SizedBox _sizeBox(double heightSizeBox) {
+  return SizedBox(height: heightSizeBox);
+}
+
+Text _textTitle(String textTitle) {
   return Text(
     textTitle,
     style: const TextStyle(
@@ -100,7 +104,7 @@ Text textTitle(String textTitle) {
   );
 }
 
-AppBar appBar() {
+AppBar _appBar() {
   return AppBar(
     leading: IconButton(
       onPressed: () {},
@@ -119,7 +123,7 @@ AppBar appBar() {
   );
 }
 
-TextField textField(String textValue, Icon iconValue) {
+TextField _textField(String textValue, Icon iconValue) {
   return TextField(
     decoration: InputDecoration(
       prefixIcon: iconValue,
